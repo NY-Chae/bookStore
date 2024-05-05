@@ -1,20 +1,21 @@
 //
-//  ViewController.swift
+//  ContentView.swift
 //  bookStore
 //
-//  Created by 채나연 on 5/4/24.
+//  Created by 채나연 on 5/5/24.
 //
 
 import SwiftUI
 
+
 struct Book: Codable {
-    let id: Int
-    let login: String
-    let avatarUrl: String
+let id: Int
+let login: String
+let avatarUrl: String
 }
 
-
 struct ContentView: View {
+    
     
     @State private var books: [Book] = []
     @State private var searchTerm = ""
