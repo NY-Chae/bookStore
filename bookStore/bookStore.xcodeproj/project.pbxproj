@@ -13,9 +13,9 @@
 		B9C0CD2A2BE9C507002D05AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9C0CD292BE9C507002D05AB /* Assets.xcassets */; };
 		B9C0CD2D2BE9C507002D05AB /* Base in Resources */ = {isa = PBXBuildFile; fileRef = B9C0CD2C2BE9C507002D05AB /* Base */; };
 		B9C0CD362BE9C7BC002D05AB /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B9C0CD352BE9C7BC002D05AB /* SnapKit */; };
-		B9C0CD382BE9C921002D05AB /* NewUINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C0CD372BE9C921002D05AB /* NewUINavigationController.swift */; };
 		B9C0CD3B2BEA037F002D05AB /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B9C0CD392BEA037F002D05AB /* DataModel.xcdatamodeld */; };
 		B9C0CD3D2BEA362F002D05AB /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C0CD3C2BEA362F002D05AB /* SecondViewController.swift */; };
+		B9C0CD3F2BEA8286002D05AB /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C0CD3E2BEA8286002D05AB /* ModalViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,9 +26,9 @@
 		B9C0CD292BE9C507002D05AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B9C0CD2C2BE9C507002D05AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B9C0CD2E2BE9C507002D05AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B9C0CD372BE9C921002D05AB /* NewUINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUINavigationController.swift; sourceTree = "<group>"; };
 		B9C0CD3A2BEA037F002D05AB /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		B9C0CD3C2BEA362F002D05AB /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		B9C0CD3E2BEA8286002D05AB /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,7 +66,7 @@
 				B9C0CD222BE9C505002D05AB /* SceneDelegate.swift */,
 				B9C0CD242BE9C505002D05AB /* ViewController.swift */,
 				B9C0CD3C2BEA362F002D05AB /* SecondViewController.swift */,
-				B9C0CD372BE9C921002D05AB /* NewUINavigationController.swift */,
+				B9C0CD3E2BEA8286002D05AB /* ModalViewController.swift */,
 				B9C0CD292BE9C507002D05AB /* Assets.xcassets */,
 				B9C0CD2B2BE9C507002D05AB /* LaunchScreen.storyboard */,
 				B9C0CD2E2BE9C507002D05AB /* Info.plist */,
@@ -154,9 +154,9 @@
 				B9C0CD3D2BEA362F002D05AB /* SecondViewController.swift in Sources */,
 				B9C0CD252BE9C505002D05AB /* ViewController.swift in Sources */,
 				B9C0CD3B2BEA037F002D05AB /* DataModel.xcdatamodeld in Sources */,
-				B9C0CD382BE9C921002D05AB /* NewUINavigationController.swift in Sources */,
 				B9C0CD212BE9C505002D05AB /* AppDelegate.swift in Sources */,
 				B9C0CD232BE9C505002D05AB /* SceneDelegate.swift in Sources */,
+				B9C0CD3F2BEA8286002D05AB /* ModalViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
