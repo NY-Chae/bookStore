@@ -16,10 +16,26 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
-        window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = ViewController()
-        window?.makeKeyAndVisible()
+        let window = UIWindow(windowScene: windowScene)
+        let vc = ViewController()
+//        window.rootViewController = vc
+        self.window = window
+        window.makeKeyAndVisible()
         
+        
+        let tabbarController = UITabBarController()
+        let firstVC = UINavigationController(rootViewController: vc)
+        let secondVC = SecondViewController()
+        
+        
+        firstVC.tabBarItem = UITabBarItem(title: "검색", image: UIImage(systemName: "magnifyingglass.circle"), selectedImage: UIImage(systemName: "magnifyingglass.circle.fill"))
+        
+        secondVC.tabBarItem = UITabBarItem(title: "담은 책들", image: UIImage(systemName: "magazine"), selectedImage: UIImage(systemName: "magazine.fill"))
+        
+        tabbarController.viewControllers = [ firstVC, secondVC ]
+        tabbarController.tabBar.backgroundColor = .white
+        
+        window.rootViewController = tabbarController
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
