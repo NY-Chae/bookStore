@@ -17,7 +17,7 @@ class ModalViewController: UIViewController {
         label.textAlignment = .center
         return label
     }()
-
+    
     lazy var writterLabel: UILabel = {
         let label = UILabel()
         label.text = "세이노"
@@ -92,13 +92,13 @@ class ModalViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        view.backgroundColor = .white
         layout()
         
         // Do any additional setup after loading the view.
     }
     
-// layout
+    // layout
     
     private func layout() {
         [vTopStackView, vStackView, contentScroll, hStackView].forEach { section in
@@ -106,12 +106,13 @@ class ModalViewController: UIViewController {
         }
         
         vTopStackView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(200)
+            make.top.equalToSuperview().offset(80)
             make.leading.trailing.equalToSuperview()
+            make.height.equalTo(70)
         }
         
         titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(vStackView.snp.top).offset(5)
+            make.top.equalTo(vTopStackView.snp.top).offset(5)
             make.leading.trailing.equalToSuperview()
         }
         writterLabel.snp.makeConstraints { make in
@@ -119,14 +120,66 @@ class ModalViewController: UIViewController {
             make.leading.trailing.equalToSuperview()
             make.bottom.equalToSuperview().inset(5)
         }
+        vStackView.snp.makeConstraints { make in
+            make.top.equalTo(vStackView.snp.bottom).offset(5)
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
+            make.height.equalTo(view.snp.height).multipliedBy(0.35)
+        }
+        
+        bookImage.snp.makeConstraints { make in
+            make.top.equalTo(vStackView.snp.top).offset(5)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().inset(20)
+            make.height.equalTo(vStackView.snp.height).multipliedBy(0.8)
+        }
+        priceLabel.snp.makeConstraints { make in
+            make.top.equalTo(bookImage.snp.bottom)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().inset(20)
+            make.height.equalTo(vStackView.snp.height).multipliedBy(0.2)
+        }
+        
+        contentLabel.snp.makeConstraints { make in
+            make.top.bottom.equalToSuperview()
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().inset(20)
+            
+        }
+        
+        contentScroll.snp.makeConstraints { make in
+            make.top.equalTo(vStackView.snp.bottom).offset(20)
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
+            make.height.equalTo(view.snp.height).multipliedBy(0.25)
+        }
+            
+        hStackView.snp.makeConstraints { make in
+            make.top.equalTo(contentScroll.snp.bottom).offset(15)
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
+            make.bottom.equalToSuperview().inset(20)
+            make.height.equalTo(view.snp.height).multipliedBy(0.15)
+        }
+        xButton.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(20)
+            make.bottom.equalToSuperview().inset(20)
+            make.leading.equalToSuperview().offset(20)
+        }
+        select.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(20)
+            make.bottom.equalToSuperview().inset(20)
+            make.leading.equalTo(xButton.snp.trailing).offset(15)
+            make.trailing.equalToSuperview().inset(20)
+            make.width.equalTo(150)
+        }
+    
+        
+        
     }
 }
 
 
-#Preview {
-    ModalViewController()
-}
 
 
 
-// modal view 시도해보기 

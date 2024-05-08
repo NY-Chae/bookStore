@@ -24,15 +24,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         
         let tabbarController = UITabBarController()
-        let firstVC = UINavigationController(rootViewController: vc)
+//        let firstVC = UINavigationController(rootViewController: vc)
         let secondVC = SecondViewController()
         
         
-        firstVC.tabBarItem = UITabBarItem(title: "검색", image: UIImage(systemName: "magnifyingglass.circle"), selectedImage: UIImage(systemName: "magnifyingglass.circle.fill"))
+        vc.tabBarItem = UITabBarItem(title: "검색", image: UIImage(systemName: "magnifyingglass.circle"), selectedImage: UIImage(systemName: "magnifyingglass.circle.fill"))
         
         secondVC.tabBarItem = UITabBarItem(title: "담은 책들", image: UIImage(systemName: "magazine"), selectedImage: UIImage(systemName: "magazine.fill"))
         
-        tabbarController.viewControllers = [ firstVC, secondVC ]
+        tabbarController.viewControllers = [ vc, secondVC ]
         tabbarController.tabBar.backgroundColor = .white
         
         window.rootViewController = tabbarController

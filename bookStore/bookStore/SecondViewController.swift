@@ -14,7 +14,8 @@ class SecondViewController: UIViewController {
     private lazy var deleteButton: UIButton = {
         let button = UIButton()
         button.setTitle("전체 삭제", for: .normal)
-        button.backgroundColor = .darkGray
+        button.backgroundColor = .white
+        button.setTitleColor(.red, for: .normal)
         return button
     }()
     
@@ -29,7 +30,8 @@ class SecondViewController: UIViewController {
     private lazy var addButton: UIButton = {
         let button = UIButton()
         button.setTitle("추가", for: .normal)
-        button.backgroundColor = .green
+        button.backgroundColor = .white
+        button.setTitleColor(.darkGray, for: .normal)
         return button
     }()
     
