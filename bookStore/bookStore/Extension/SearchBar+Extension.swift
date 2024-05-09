@@ -9,6 +9,16 @@ import UIKit
 
 extension ViewController: UISearchBarDelegate {
     
+    func setup() {
+        searchBar.delegate = self
+        
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        print(searchBar.text)
+    }
+    
+    
     
 }
 

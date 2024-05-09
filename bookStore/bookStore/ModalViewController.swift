@@ -7,10 +7,7 @@
 
 import UIKit
 import SnapKit
-
 class ModalViewController: UIViewController {
-    
-    
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.text = "세이노의 가르침"
@@ -30,7 +27,6 @@ class ModalViewController: UIViewController {
         stackView.axis = .vertical
         return stackView
     }()
-    
     
     lazy var bookImage: UIImageView = {
         let image = UIImageView()
@@ -52,9 +48,7 @@ class ModalViewController: UIViewController {
         return stackView
     }()
     
-    
     // scrollView
-    
     lazy var contentScroll: UIScrollView = {
         let scroll = UIScrollView()
         scroll.isScrollEnabled = true
@@ -68,7 +62,7 @@ class ModalViewController: UIViewController {
         content.text = "인간은 변할 수 있고"
         return content
     }()
-    
+    // buttonStackView
     lazy var xButton: UIButton = {
         let button = UIButton()
         button.setTitle("X", for: .normal)
@@ -88,7 +82,6 @@ class ModalViewController: UIViewController {
         stackView.axis = .horizontal
         return stackView
     }()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -110,7 +103,6 @@ class ModalViewController: UIViewController {
             make.leading.trailing.equalToSuperview()
             make.height.equalTo(70)
         }
-        
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(vTopStackView.snp.top).offset(5)
             make.leading.trailing.equalToSuperview()
@@ -126,7 +118,6 @@ class ModalViewController: UIViewController {
             make.trailing.equalToSuperview()
             make.height.equalTo(view.snp.height).multipliedBy(0.35)
         }
-        
         bookImage.snp.makeConstraints { make in
             make.top.equalTo(vStackView.snp.top).offset(5)
             make.leading.equalToSuperview().offset(20)
@@ -139,21 +130,17 @@ class ModalViewController: UIViewController {
             make.trailing.equalToSuperview().inset(20)
             make.height.equalTo(vStackView.snp.height).multipliedBy(0.2)
         }
-        
         contentLabel.snp.makeConstraints { make in
             make.top.bottom.equalToSuperview()
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().inset(20)
-            
         }
-        
         contentScroll.snp.makeConstraints { make in
             make.top.equalTo(vStackView.snp.bottom).offset(20)
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
             make.height.equalTo(view.snp.height).multipliedBy(0.25)
         }
-            
         hStackView.snp.makeConstraints { make in
             make.top.equalTo(contentScroll.snp.bottom).offset(15)
             make.leading.equalToSuperview()
@@ -163,15 +150,17 @@ class ModalViewController: UIViewController {
         }
         xButton.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(20)
-            make.bottom.equalToSuperview().inset(20)
+            make.bottom.equalToSuperview().offset(-20)
             make.leading.equalToSuperview().offset(20)
+            make.width.equalTo(50)
         }
         select.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(20)
             make.bottom.equalToSuperview().inset(20)
             make.leading.equalTo(xButton.snp.trailing).offset(15)
-            make.trailing.equalToSuperview().inset(20)
+            make.trailing.equalToSuperview().offset(-20)
             make.width.equalTo(150)
+            // 컴포넌트 사이에 스페이싱을 주는 방법 검색 
         }
     
         

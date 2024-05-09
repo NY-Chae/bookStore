@@ -4,20 +4,17 @@
 //
 //  Created by 채나연 on 5/7/24.
 //
-
 import UIKit
 import SnapKit
 
 class ViewController: UIViewController {
 
-    private lazy var searchBar : UISearchBar = {
+    lazy var searchBar : UISearchBar = {
         let bar = UISearchBar()
         bar.placeholder = "찾고 싶은 책의 이름을 입력하세요"
         return bar
     }()
 
-    
-    // 프로퍼티를 만들고
     private lazy var recentBook: UILabel = {
         let label = UILabel()
         label.text = "최근 본 책"
@@ -34,9 +31,7 @@ class ViewController: UIViewController {
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
         view.backgroundColor = .red
         //view.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "")
-        
         return view
-        
     }()
     
     private lazy var searchResult: UILabel = {
@@ -44,9 +39,7 @@ class ViewController: UIViewController {
         label.text = "검색 결과"
         label.numberOfLines = 0
         label.font.withSize(50)
-        
         return label
-        
     }()
     
     private lazy var resultTable: UITableView = {
@@ -54,15 +47,31 @@ class ViewController: UIViewController {
         table.backgroundColor = .cyan
         table.rowHeight = 80
         //view.register(UITableViewCell.self, forCellWithReuseIdentifier: "")
-        
         return table
-        
     }()
+    
+    // network manager 인스턴스화 (network manager에 접근(access)하기 위해 필요해. 보통은 singleton(메모리 효율 good)으로 많이 하지만 이번엔 패스. 접근성 이슈 x
+    let networkManager = NetworkManager()  // 인스턴스화 완료
+    
+    
+    
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
         layout()
+        setup()
+        networkManager.fetchRequest { result in // success와 failure에 대한 결과값을 받는다
+            switch result {
+            case.success(let yeon):
+                print(yeon)
+            case.failure(let error):
+                print(error)
+            }
+        }
     }
 
     // layout func - subview를 만든다
