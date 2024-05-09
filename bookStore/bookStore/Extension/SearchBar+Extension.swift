@@ -15,13 +15,20 @@ extension ViewController: UISearchBarDelegate {
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        print(searchBar.text)
+        if let text = searchBar.text {
+            networkManager.fetchRequest(title: text) { result in
+                DispatchQueue.main.async {
+                    switch result {
+                    case .success(let yeon): // Model: Document
+    //                    print(yeon.documents)
+                        self.answerList = yeon.documents  // 데이터 담기
+                      //  print(self.answerList)
+                    case.failure(let error):
+                        print(error)
+                    }
+                }
+            }
+        }
+        // print(searchBar.text)
     }
-    
-    
-    
 }
-
-
-
-

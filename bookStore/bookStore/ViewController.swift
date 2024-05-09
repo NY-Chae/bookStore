@@ -8,13 +8,13 @@ import UIKit
 import SnapKit
 
 class ViewController: UIViewController {
-
-    lazy var searchBar : UISearchBar = {
+    
+    lazy var searchBar: UISearchBar = {
         let bar = UISearchBar()
         bar.placeholder = "찾고 싶은 책의 이름을 입력하세요"
         return bar
     }()
-
+    
     private lazy var recentBook: UILabel = {
         let label = UILabel()
         label.text = "최근 본 책"
@@ -42,56 +42,58 @@ class ViewController: UIViewController {
         return label
     }()
     
-    private lazy var resultTable: UITableView = {
+    lazy var resultTable: UITableView = {
         let table = UITableView()
-        table.backgroundColor = .cyan
+        table.backgroundColor = .systemBackground
         table.rowHeight = 80
-        //view.register(UITableViewCell.self, forCellWithReuseIdentifier: "")
+        table.register(SearchResultTableViewCell.self, forCellReuseIdentifier: "SearchResultTableViewCell") // 셀 등록 완
         return table
     }()
     
     // network manager 인스턴스화 (network manager에 접근(access)하기 위해 필요해. 보통은 singleton(메모리 효율 good)으로 많이 하지만 이번엔 패스. 접근성 이슈 x
     let networkManager = NetworkManager()  // 인스턴스화 완료
     
-    
-    
-    
-    
-    
+    var answerList = [Document]()  // 데이터 담기
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
         layout()
         setup()
-        networkManager.fetchRequest { result in // success와 failure에 대한 결과값을 받는다
-            switch result {
-            case.success(let yeon):
-                print(yeon)
-            case.failure(let error):
-                print(error)
-            }
+        tableSetup()
+    
+        //        networkManager.fetchRequest { result in // success와 failure에 대한 결과값을 받는다
+        //            switch result {
+        //            case.success(let yeon):
+        //                print(yeon)
+        //            case.failure(let error):
+        //                print(error)
+        //            }
+        //        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        DispatchQueue.main.async {
+            self.resultTable.reloadData()
         }
     }
-
-    // layout func - subview를 만든다
     
+    // layout func - subview를 만든다
     private func layout() {
         [searchBar, recentBook, collection, searchResult, resultTable].forEach { section in
             view.addSubview(section)
-            
         }
-        
-//        view.addSubview(searchBar)
-//        view.addSubview(recentBook)
-//        view.addSubview(collection)
+        //        view.addSubview(searchBar)
+        //        view.addSubview(recentBook)
+        //        view.addSubview(collection)
         
         searchBar.snp.makeConstraints { make in
             make.top.equalTo(view.snp.top).offset(70)
             make.leading.equalTo(view.snp.leading).offset(20)
             make.trailing.equalToSuperview().inset(20)
         }
-       
+        
         recentBook.snp.makeConstraints { make in
             make.top.equalTo(searchBar.snp.bottom).offset(30)
             make.leading.equalTo(view.snp.leading).offset(30)
