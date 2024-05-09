@@ -18,4 +18,12 @@ struct Document: Codable {
     let price: Int
     let thumbnail: String
     let title: String
+    
+    init(authors: [String], contents: String, price: Int, thumbnail: String, title: String) {
+        self.authors = authors
+        self.contents = contents
+        self.price = price
+        self.thumbnail = thumbnail
+        self.title = title
+    }
 }

@@ -66,23 +66,36 @@ class ModalViewController: UIViewController {
     lazy var xButton: UIButton = {
         let button = UIButton()
         button.setTitle("X", for: .normal)
-        button.backgroundColor = .yellow
-     //   button.addTarget(self, action
+        button.backgroundColor = .black
+        button.setTitleColor(.yellow, for: .normal)
+        button.addTarget(self, action: #selector(returnMain), for: .touchUpInside)
         return button
     }()
-    
+    @objc func returnMain() {
+        self.dismiss(animated: true)
+    }
+        
     lazy var select: UIButton = {
         let button = UIButton()
         button.setTitle("담기", for: .normal)
+        button.setTitleColor(.black, for: .normal)
         button.backgroundColor = .green
+        button.addTarget(self, action: #selector(returnToSelected), for: .touchUpInside)
         return button
     }()
-    
+    @objc func returnToSelected() {
+        coreDataManager.saveData(model: document)
+        print("담기완료")
+        
+    }
     lazy var hStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [xButton, select])
         stackView.axis = .horizontal
         return stackView
     }()
+    
+    let coreDataManager = CoreDataManager()
+    var document = Document(authors: [], contents: "", price: 0, thumbnail: "", title: "") // 초기화
     
     override func viewDidLoad() {
         super.viewDidLoad()

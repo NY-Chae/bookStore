@@ -40,6 +40,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         modalVC.bookImage.kf.setImage(with: URL(string: item.thumbnail))
         modalVC.priceLabel.text = item.price.stringValue
         modalVC.contentLabel.text = item.contents
+        modalVC.document = item
         self.present(modalVC,animated: true)
     }
     
