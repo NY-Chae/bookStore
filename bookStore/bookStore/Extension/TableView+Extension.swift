@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
@@ -29,7 +30,17 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         cell.authorLabel.text = item.authors.joined() // joined : 배열을 한번에 보여주겠다. 즉, 배열의 전체 값을 문자열로 변환
         cell.priceLabel.text = item.price.stringValue // 형 변환의 stylish한 버전
         return cell
-    
+    }
+    // 클릭 시 이벤트 발생
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let modalVC = ModalViewController()
+        let item = answerList[indexPath.row]
+        modalVC.titleLabel.text = item.title
+        modalVC.writterLabel.text = item.authors.joined()
+        modalVC.bookImage.kf.setImage(with: URL(string: item.thumbnail))
+        modalVC.priceLabel.text = item.price.stringValue
+        modalVC.contentLabel.text = item.contents
+        self.present(modalVC,animated: true)
     }
     
 }

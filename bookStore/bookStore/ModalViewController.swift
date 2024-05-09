@@ -67,6 +67,7 @@ class ModalViewController: UIViewController {
         let button = UIButton()
         button.setTitle("X", for: .normal)
         button.backgroundColor = .yellow
+     //   button.addTarget(self, action
         return button
     }()
     
