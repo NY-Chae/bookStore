@@ -45,6 +45,7 @@ class ModalViewController: UIViewController {
     lazy var vStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [bookImage, priceLabel])
         stackView.axis = .vertical
+        stackView.spacing = 3
         return stackView
     }()
     
@@ -91,6 +92,7 @@ class ModalViewController: UIViewController {
     lazy var hStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [xButton, select])
         stackView.axis = .horizontal
+        stackView.spacing = 10
         return stackView
     }()
     
@@ -128,20 +130,13 @@ class ModalViewController: UIViewController {
         }
         vStackView.snp.makeConstraints { make in
             make.top.equalTo(vStackView.snp.bottom).offset(5)
-            make.leading.equalToSuperview()
-            make.trailing.equalToSuperview()
+            make.horizontalEdges.equalToSuperview().inset(20)
             make.height.equalTo(view.snp.height).multipliedBy(0.35)
         }
         bookImage.snp.makeConstraints { make in
-            make.top.equalTo(vStackView.snp.top).offset(5)
-            make.leading.equalToSuperview().offset(20)
-            make.trailing.equalToSuperview().inset(20)
             make.height.equalTo(vStackView.snp.height).multipliedBy(0.8)
         }
         priceLabel.snp.makeConstraints { make in
-            make.top.equalTo(bookImage.snp.bottom)
-            make.leading.equalToSuperview().offset(20)
-            make.trailing.equalToSuperview().inset(20)
             make.height.equalTo(vStackView.snp.height).multipliedBy(0.2)
         }
         contentLabel.snp.makeConstraints { make in
@@ -157,24 +152,18 @@ class ModalViewController: UIViewController {
         }
         hStackView.snp.makeConstraints { make in
             make.top.equalTo(contentScroll.snp.bottom).offset(15)
-            make.leading.equalToSuperview()
-            make.trailing.equalToSuperview()
-            make.bottom.equalToSuperview().inset(20)
-            make.height.equalTo(view.snp.height).multipliedBy(0.15)
+            make.horizontalEdges.equalToSuperview().inset(20)  // 양끝 패딩 한번에 주기
+            make.bottom.equalToSuperview().inset(50)
+           
         }
         xButton.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(20)
-            make.bottom.equalToSuperview().offset(-20)
-            make.leading.equalToSuperview().offset(20)
-            make.width.equalTo(50)
+            make.height.equalTo(view.snp.height).multipliedBy(0.15)
+            make.width.equalTo(60)
         }
         select.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(20)
-            make.bottom.equalToSuperview().inset(20)
-            make.leading.equalTo(xButton.snp.trailing).offset(15)
-            make.trailing.equalToSuperview().offset(-20)
-            make.width.equalTo(150)
-            // 컴포넌트 사이에 스페이싱을 주는 방법 검색 
+            make.height.equalTo(view.snp.height).multipliedBy(0.15)
+            make.width.equalTo(UIScreen.main.bounds.width - 110) // 전체 너비에서 계산한 값 빼기
+            // 컴포넌트 사이에 스페이싱을 주는 방법 검색
         }
     
         
