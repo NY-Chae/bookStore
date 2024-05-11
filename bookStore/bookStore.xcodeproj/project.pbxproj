@@ -82,6 +82,8 @@
 			isa = PBXGroup;
 			children = (
 				B99EAD122BEB7DA7001CB0C0 /* BookModel.swift */,
+				B9C0CD222BE9C505002D05AB /* SceneDelegate.swift */,
+				B9C0CD202BE9C505002D05AB /* AppDelegate.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -90,6 +92,9 @@
 			isa = PBXGroup;
 			children = (
 				B99EAD152BECD15D001CB0C0 /* SearchResultTableViewCell.swift */,
+				B9C0CD242BE9C505002D05AB /* ViewController.swift */,
+				B9C0CD3E2BEA8286002D05AB /* ModalViewController.swift */,
+				B9C0CD3C2BEA362F002D05AB /* SecondViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -117,11 +122,6 @@
 				B99EAD112BEB7D95001CB0C0 /* Model */,
 				B99EAD0E2BEB7B92001CB0C0 /* Service */,
 				B99EAD0B2BEB636D001CB0C0 /* Extension */,
-				B9C0CD202BE9C505002D05AB /* AppDelegate.swift */,
-				B9C0CD222BE9C505002D05AB /* SceneDelegate.swift */,
-				B9C0CD242BE9C505002D05AB /* ViewController.swift */,
-				B9C0CD3C2BEA362F002D05AB /* SecondViewController.swift */,
-				B9C0CD3E2BEA8286002D05AB /* ModalViewController.swift */,
 				B9C0CD292BE9C507002D05AB /* Assets.xcassets */,
 				B9C0CD2B2BE9C507002D05AB /* LaunchScreen.storyboard */,
 				B9C0CD2E2BE9C507002D05AB /* Info.plist */,
