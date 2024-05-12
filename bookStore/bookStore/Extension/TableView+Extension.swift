@@ -59,7 +59,7 @@ extension SecondViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = selectedTable.dequeueReusableCell(withIdentifier: "SelectedListTableViewCell", for: indexPath) as? SearchResultTableViewCell else { return UITableViewCell() }
+        guard let cell = selectedTable.dequeueReusableCell(withIdentifier: "SelectedListTableViewCell", for: indexPath) as? SelectedListTableViewCell else { return UITableViewCell() }
         let item = selectedInfo[indexPath.row]
         cell.titleLabel.text = item.title
         cell.authorLabel.text = item.authors

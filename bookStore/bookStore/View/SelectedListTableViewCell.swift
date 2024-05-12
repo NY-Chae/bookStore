@@ -62,21 +62,21 @@ class SelectedListTableViewCell: UITableViewCell {
         }
         
         titleLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(20)
+            make.top.equalToSuperview()
             make.leading.equalToSuperview().offset(10)
-            make.bottom.equalToSuperview().inset(20)
+            make.bottom.equalToSuperview()
         }
         
         authorLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(20)
+            make.top.equalToSuperview()
             make.leading.equalTo(titleLabel.snp.trailing).offset(25)
-            make.bottom.equalToSuperview().inset(20)
+            make.bottom.equalToSuperview()
         }
         priceLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(20)
+            make.top.equalToSuperview()
             make.leading.equalTo(authorLabel.snp.trailing).offset(25)
-            make.bottom.equalToSuperview().inset(20)
-            make.trailing.equalToSuperview().inset(20)
+            make.bottom.equalToSuperview()
+            make.trailing.equalToSuperview().inset(10)
         }
     }
 }
