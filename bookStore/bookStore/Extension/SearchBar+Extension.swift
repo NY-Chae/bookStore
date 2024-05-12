@@ -20,8 +20,8 @@ extension ViewController: UISearchBarDelegate {
                     switch result {
                     case .success(let yeon): // Model: Document
     //                    print(yeon.documents)
-                        self.answerList = yeon.documents // 데이터 담기
-                        self.resultTable.reloadData()
+                        self.answerList = yeon.documents // api 호출이 성공했을 경우 answerList에 데이터를 담는다.
+                        self.resultTable.reloadData() // reload를 해서 TableView에 노출
                       //  print(self.answerList)
                     case.failure(let error):
                         print(error)

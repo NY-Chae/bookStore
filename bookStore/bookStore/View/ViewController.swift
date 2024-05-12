@@ -53,7 +53,7 @@ class ViewController: UIViewController {
     // network manager 인스턴스화 (network manager에 접근(access)하기 위해 필요해. 보통은 singleton(메모리 효율 good)으로 많이 하지만 이번엔 패스. 접근성 이슈 x
     let networkManager = NetworkManager()  // 인스턴스화 완료
     
-    var answerList = [Document]()  // 데이터 담기
+    var answerList = [Document]()  // 데이터를 담을 배열 생성
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -47,5 +47,25 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 
-
+extension SecondViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableSetup() {
+        selectedTable.delegate = self
+        selectedTable.dataSource = self
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return selectedInfo.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = selectedTable.dequeueReusableCell(withIdentifier: "SelectedListTableViewCell", for: indexPath) as? SearchResultTableViewCell else { return UITableViewCell() }
+        let item = selectedInfo[indexPath.row]
+        cell.titleLabel.text = item.title
+        cell.authorLabel.text = item.authors
+        cell.priceLabel.text = item.price.stringValue
+        return cell
+    }
+    
+}
 

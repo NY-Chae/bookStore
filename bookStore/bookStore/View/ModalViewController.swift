@@ -96,7 +96,7 @@ class ModalViewController: UIViewController {
         return stackView
     }()
     
-    let coreDataManager = CoreDataManager()
+    let coreDataManager = CoreDataManager() // <- 인스턴스화
     var document = Document(authors: [], contents: "", price: 0, thumbnail: "", title: "") // 초기화
     
     override func viewDidLoad() {

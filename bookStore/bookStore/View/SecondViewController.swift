@@ -46,25 +46,31 @@ class SecondViewController: UIViewController {
         return stackView
     }()
     
-    private lazy var selectedTable: UITableView = {
+    lazy var selectedTable: UITableView = {
         let table = UITableView()
-        table.backgroundColor = .cyan
-        table.rowHeight = 40
-        //view.register(UITableViewCell.self, forCellWithReuseIdentifier: "")
+        table.backgroundColor = .systemBackground
+        table.rowHeight = 50
+        table.register(SelectedListTableViewCell.self, forCellReuseIdentifier: "SelectedListTableViewCell")
         
         return table
         
     }()
+    let coreDataManager = CoreDataManager()  // <- 인스턴스화
+    var selectedInfo = [BookInfo]()
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         layout()
-        
+        tableSetup()
+        selectedInfo = coreDataManager.loadData()
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        selectedTable.reloadData()
+    }
     private func layout() {
 //        [deleteButton, bookLabel, addButton].forEach { section in
 //            view.addSubview(section)

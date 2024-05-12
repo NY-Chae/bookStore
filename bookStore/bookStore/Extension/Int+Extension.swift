@@ -13,3 +13,8 @@ extension Int {
         return String(self)
     }
 }
+extension Int64 {
+    var stringValue: String? {
+        return String(self)
+    }
+}
