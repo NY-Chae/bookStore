@@ -33,6 +33,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     // 클릭 시 이벤트 발생
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // modalVC의 값을 보내면서 modalVC 출력(self.present)
         let modalVC = ModalViewController()
         let item = answerList[indexPath.row]
         modalVC.titleLabel.text = item.title
@@ -41,9 +42,13 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         modalVC.priceLabel.text = item.price.stringValue
         modalVC.contentLabel.text = item.contents
         modalVC.document = item
+        
+        // Recent entity에 데이터 저장
+        coreDataManager.recentSaveData(model: item)
+        modalVC.modalPresentationStyle = .fullScreen
+        
         self.present(modalVC,animated: true)
     }
-    
 }
 
 

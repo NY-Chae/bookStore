@@ -23,14 +23,14 @@ class ViewController: UIViewController {
         return label
     }()
     
-    private lazy var collection: UICollectionView = {
+    lazy var collection: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.minimumLineSpacing = 10
         layout.itemSize = .init(width: 200, height: 200)
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        view.backgroundColor = .red
-        //view.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "")
+        view.backgroundColor = .systemBackground
+        view.register(RecentBookCollectionViewCell.self, forCellWithReuseIdentifier: "RecentBookCollectionViewCell")
         return view
     }()
     
@@ -50,10 +50,11 @@ class ViewController: UIViewController {
         return table
     }()
     
-    // network manager 인스턴스화 (network manager에 접근(access)하기 위해 필요해. 보통은 singleton(메모리 효율 good)으로 많이 하지만 이번엔 패스. 접근성 이슈 x
+    // network manager 인스턴스화 (network manager에 접근(access)하기 위해 필요. 보통은 singleton(메모리 효율 good)으로 많이 하지만 이번엔 패스. 접근성 이슈 x
     let networkManager = NetworkManager()  // 인스턴스화 완료
-    
+    let coreDataManager = CoreDataManager()
     var answerList = [Document]()  // 데이터를 담을 배열 생성
+    var recentList = [Recent]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +62,9 @@ class ViewController: UIViewController {
         layout()
         setup()
         tableSetup()
-    
+        collectionSetup()
+        recentList = coreDataManager.recentLoadData()
+        self.collection.reloadData()
         //        networkManager.fetchRequest { result in // success와 failure에 대한 결과값을 받는다
         //            switch result {
         //            case.success(let yeon):
@@ -78,6 +81,11 @@ class ViewController: UIViewController {
             self.resultTable.reloadData()
         }
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        resultTable.reloadData()
+    }
+    
     
     // layout func - subview를 만든다
     private func layout() {

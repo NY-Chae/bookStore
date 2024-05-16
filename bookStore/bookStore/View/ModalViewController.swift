@@ -103,7 +103,6 @@ class ModalViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         layout()
-        
         // Do any additional setup after loading the view.
     }
     

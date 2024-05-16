@@ -25,6 +25,8 @@
 		B9C0CD3B2BEA037F002D05AB /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B9C0CD392BEA037F002D05AB /* DataModel.xcdatamodeld */; };
 		B9C0CD3D2BEA362F002D05AB /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C0CD3C2BEA362F002D05AB /* SecondViewController.swift */; };
 		B9C0CD3F2BEA8286002D05AB /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C0CD3E2BEA8286002D05AB /* ModalViewController.swift */; };
+		B9E1A8012BF5AB86007B1FD8 /* RecentBookCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E1A8002BF5AB85007B1FD8 /* RecentBookCollectionViewCell.swift */; };
+		B9FE8F292BF5BB9700B88BA0 /* CollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FE8F282BF5BB9600B88BA0 /* CollectionView+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		B9C0CD3A2BEA037F002D05AB /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		B9C0CD3C2BEA362F002D05AB /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		B9C0CD3E2BEA8286002D05AB /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
+		B9E1A8002BF5AB85007B1FD8 /* RecentBookCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentBookCollectionViewCell.swift; sourceTree = "<group>"; };
+		B9FE8F282BF5BB9600B88BA0 /* CollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionView+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +71,7 @@
 				B99EAD0C2BEB63B4001CB0C0 /* SearchBar+Extension.swift */,
 				B99EAD172BECFEAD001CB0C0 /* TableView+Extension.swift */,
 				B99EAD192BED0C4B001CB0C0 /* Int+Extension.swift */,
+				B9FE8F282BF5BB9600B88BA0 /* CollectionView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -93,6 +98,7 @@
 		B99EAD142BECCE9F001CB0C0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B9E1A8002BF5AB85007B1FD8 /* RecentBookCollectionViewCell.swift */,
 				B99EAD152BECD15D001CB0C0 /* SearchResultTableViewCell.swift */,
 				B9726C6C2BF09F5A000177E0 /* SelectedListTableViewCell.swift */,
 				B9C0CD242BE9C505002D05AB /* ViewController.swift */,
@@ -215,9 +221,11 @@
 				B99EAD102BEB7BAE001CB0C0 /* NetworkManager.swift in Sources */,
 				B9C0CD252BE9C505002D05AB /* ViewController.swift in Sources */,
 				B99EAD132BEB7DA7001CB0C0 /* BookModel.swift in Sources */,
+				B9E1A8012BF5AB86007B1FD8 /* RecentBookCollectionViewCell.swift in Sources */,
 				B9C0CD3B2BEA037F002D05AB /* DataModel.xcdatamodeld in Sources */,
 				B9C0CD212BE9C505002D05AB /* AppDelegate.swift in Sources */,
 				B99EAD162BECD15D001CB0C0 /* SearchResultTableViewCell.swift in Sources */,
+				B9FE8F292BF5BB9700B88BA0 /* CollectionView+Extension.swift in Sources */,
 				B9A84D702BED1FC900EB02BD /* CoreDataManager.swift in Sources */,
 				B9C0CD232BE9C505002D05AB /* SceneDelegate.swift in Sources */,
 				B9C0CD3F2BEA8286002D05AB /* ModalViewController.swift in Sources */,

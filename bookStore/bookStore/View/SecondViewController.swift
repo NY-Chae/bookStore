@@ -65,7 +65,7 @@ class SecondViewController: UIViewController {
         view.backgroundColor = .systemBackground
         layout()
         tableSetup()
-        selectedInfo = coreDataManager.loadData()
+        selectedInfo = coreDataManager.loadData() // loadData : 코어데이터에서 가져온 데이터
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
