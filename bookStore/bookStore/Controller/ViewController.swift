@@ -53,8 +53,8 @@ class ViewController: UIViewController {
     // network manager 인스턴스화 (network manager에 접근(access)하기 위해 필요. 보통은 singleton(메모리 효율 good)으로 많이 하지만 이번엔 패스. 접근성 이슈 x
     let networkManager = NetworkManager()  // 인스턴스화 완료
     let coreDataManager = CoreDataManager()
-    var answerList = [Document]()  // 데이터를 담을 배열 생성
-    var recentList = [Recent]()
+    var answerList = [Document]() // 데이터를 담을 배열 생성
+    var recentList = [Recent]() //
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,7 +83,11 @@ class ViewController: UIViewController {
     }
     
     override func viewDidDisappear(_ animated: Bool) {
-        resultTable.reloadData()
+       // resultTable.reloadData()
+        super.viewDidDisappear(animated)
+        DispatchQueue.main.async {
+            self.resultTable.reloadData()
+        }
     }
     
     

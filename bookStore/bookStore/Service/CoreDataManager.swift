@@ -10,9 +10,9 @@ import UIKit
 class CoreDataManager {
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-    
-    // coredata 저장
+    // ModalVC 연결 데이터
     func saveData(model:Document) {
+        // API Data를 가져오겠다.
         let newItem = BookInfo(context: context)
         newItem.title = model.title
         newItem.authors = model.authors.joined()
@@ -26,23 +26,24 @@ class CoreDataManager {
     }
     
     func loadData() -> [BookInfo] {
-        
         // 하드디스크(local)의 Data를 가져오겠다.
         let request: NSFetchRequest<BookInfo> = BookInfo.fetchRequest()
-        
         var array = [BookInfo]()
         do {
             array = try context.fetch(request) // coreData -> xCode
         } catch {
-            
         }
         return array
     }
     
     func recentSaveData(model:Document) {
+        
         let newItem = Recent(context: context)
         newItem.name = model.title
         newItem.bookImage = model.thumbnail
+        newItem.contents = model.contents
+        newItem.authors = model.authors.joined()
+        newItem.price = Int64(model.price)
         do {
             try context.save()
         } catch {
@@ -52,7 +53,6 @@ class CoreDataManager {
     func recentLoadData() -> [Recent] {
         
         let request: NSFetchRequest<Recent> = Recent.fetchRequest()
-        
         var array = [Recent]()
         do {
             array = try context.fetch(request) // coreData -> xCode
@@ -61,5 +61,4 @@ class CoreDataManager {
         }
         return array
     }
-    
 }

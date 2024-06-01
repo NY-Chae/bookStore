@@ -87,8 +87,9 @@ class ModalViewController: UIViewController {
     @objc func returnToSelected() {
         coreDataManager.saveData(model: document)
         print("담기완료")
-        
+        self.dismiss(animated: true)
     }
+    
     lazy var hStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [xButton, select])
         stackView.axis = .horizontal
